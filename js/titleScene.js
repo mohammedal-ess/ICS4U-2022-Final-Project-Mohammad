@@ -4,26 +4,25 @@
 //
 // Created by : mohammed al-essawi 
 // Created on : Jan 2023 
-// This is  splash scene 
+// This is  title scene 
 
-class Splashscene extends Phaser.scene {
+class Titlescene extends Phaser.scene {
   constructor () {
-    super({key: 'splashScene'})
+    super({key: 'titleScene'})
   }
 init (data) {
   this.cameras.main.setBackgroundColor('#ffffff')
 }
 
 preload () {
-  console.log('Splash Scene')
+  console.log('Title Scene')
 }
 
 create (data) {  
 }
 
  update (time, delta) {  
-   this.scene.switch('titleScene')
  }
 }
 
-export default Splashscene
+export default Titlescene
