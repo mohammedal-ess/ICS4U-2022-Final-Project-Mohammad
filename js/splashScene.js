@@ -1,38 +1,38 @@
 /* global Phaser */
 
-// Copyright (c) 2023 mohammed al-essawi All right reserved 
+// Copyright (c) 2020 Mr. Coxall All rights reserved
 //
-// Created by : mohammed al-essawi 
-// Created on : Jan 2023 
-// This is  splash scene 
+// Created by: mohammed al-essawi
+// Created on: Jan 2023
+// This is the Splash Scene
 
-class Splashscene extends Phaser.scene {
+class SplashScene extends Phaser.Scene {
   constructor () {
-    super({key: 'splashScene'})
+    super({ key: 'splashScene' })
+
+    this.splashSceneBackgroundImage = null
   }
-init (data) {
-  this.cameras.main.setBackgroundColor('#ffffff')
+
+  init (data) {
+    this.cameras.main.setBackgroundColor('#ffffff')
+  }
+
+  preload () {
+    console.log('Splash Scene')
+    this.load.image('splashSceneBackground', './assets/splashSceneImage.png')
+  }
+
+  create (data) {
+    this.splashSceneBackgroundImage = this.add.sprite(0, 0, 'splashSceneBackground')
+    this.splashSceneBackgroundImage.x = 1920 / 2
+    this.splashSceneBackgroundImage.y = 1080 / 2
+  }
+
+  update (time, delta) {
+    if (time > 3000) {
+      this.scene.switch('titleScene')
+    }
+  }
 }
 
-preload () {
-  console.log('Splash Scene')
-  this.load.image('splashSceneBackground', '/assets/splashSceneImage.png')
-}
-
-create (data) {  
-  this.SplashsceneBackgroundImage = this.add.sprite(0, 0, 'SplashsceneBackground')
-  this.SplashsceneBackgroundImage.x = 1920/2
-  this.SplashsceneBackgroundImage.y = 1080/2
-}
-
- update (time, delta) {  
-   if (time<3000) {
-     this.scene.switch('titleScene') 
-   }
-   
-   
-   this.scene.switch('titleScene')
- }
-}
-
-export default Splashscene
+export default SplashScene
